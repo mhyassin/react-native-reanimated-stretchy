@@ -1,14 +1,23 @@
-import Animated from "react-native-reanimated";
-import { SectionList, SectionListProps, View } from "react-native";
+import React from 'react';
+import Animated from 'react-native-reanimated';
+import { SectionList, SectionListProps } from 'react-native';
 
-import { useStretchy } from "../useStretchy";
-import { StretchyProps } from "../types";
-import { Container } from "./Container";
+import { useStretchy } from '../useStretchy';
+import type { StretchyProps } from '../types';
+import { Container } from './Container';
 
-const AnimatedSectionList = Animated.createAnimatedComponent<SectionListProps<any, any>>(SectionList);
+const AnimatedSectionList =
+  Animated.createAnimatedComponent<SectionListProps<any, any>>(SectionList);
 
-interface StretchySectionListProps<T, K> extends SectionListProps<T, K>, StretchyProps {}
-export const StretchySectionList = <T, K>({ imageSource, imageHeight, foreground, ...props }: StretchySectionListProps<T, K>) => {
+interface StretchySectionListProps<T, K>
+  extends SectionListProps<T, K>,
+    StretchyProps {}
+export const StretchySectionList = <T, K>({
+  imageSource,
+  imageHeight,
+  foreground,
+  ...props
+}: StretchySectionListProps<T, K>) => {
   const { rImage, rView, scrollHandler } = useStretchy({ imageHeight });
 
   return (

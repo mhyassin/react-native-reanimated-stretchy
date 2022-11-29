@@ -1,12 +1,18 @@
-import Animated from "react-native-reanimated";
-import { FlatListProps } from "react-native";
+import React from 'react';
+import Animated from 'react-native-reanimated';
+import type { FlatListProps } from 'react-native';
 
-import { useStretchy } from "../useStretchy";
-import { StretchyProps } from "../types";
-import { Container } from "./Container";
+import { useStretchy } from '../useStretchy';
+import type { StretchyProps } from '../types';
+import { Container } from './Container';
 
 interface StretchyFlatListProps<T> extends FlatListProps<T>, StretchyProps {}
-export const StretchyFlatList = <T,>({ imageSource, imageHeight, foreground, ...props }: StretchyFlatListProps<T>) => {
+export const StretchyFlatList = <T,>({
+  imageSource,
+  imageHeight,
+  foreground,
+  ...props
+}: StretchyFlatListProps<T>) => {
   const { rImage, rView, scrollHandler } = useStretchy({ imageHeight });
 
   return (

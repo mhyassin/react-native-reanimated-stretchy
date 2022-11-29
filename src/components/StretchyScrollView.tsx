@@ -1,12 +1,18 @@
-import Animated from "react-native-reanimated";
-import { ScrollViewProps, View } from "react-native";
+import React from 'react';
+import Animated from 'react-native-reanimated';
+import type { ScrollViewProps } from 'react-native';
 
-import { StretchyProps } from "../types";
-import { useStretchy } from "../useStretchy";
-import { Container } from "./Container";
+import type { StretchyProps } from '../types';
+import { useStretchy } from '../useStretchy';
+import { Container } from './Container';
 
 interface StretchyScrollViewProps extends ScrollViewProps, StretchyProps {}
-export const StretchyScrollView = ({ imageSource, imageHeight, foreground, ...props }: StretchyScrollViewProps) => {
+export const StretchyScrollView = ({
+  imageSource,
+  imageHeight,
+  foreground,
+  ...props
+}: StretchyScrollViewProps) => {
   const { rImage, rView, scrollHandler } = useStretchy({ imageHeight });
 
   return (
