@@ -37,23 +37,5 @@ export const useStretchy = ({ imageHeight }: useStretchyProps) => {
     };
   }, [scrollOffset, imageHeight]);
 
-  const rImage = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          scale: interpolate(
-            scrollOffset.value,
-            [-imageHeight, 0, imageHeight],
-            [1.5, 1, 1],
-            Extrapolate.CLAMP
-          ),
-        },
-      ],
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-    };
-  }, [imageHeight, scrollOffset]);
-
-  return { rView, rImage, scrollHandler };
+  return { rView, scrollHandler };
 };

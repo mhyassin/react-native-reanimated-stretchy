@@ -2,9 +2,10 @@ import React from 'react';
 import Animated from 'react-native-reanimated';
 import type { FlatListProps } from 'react-native';
 
+import { BgImage } from './BgImage';
+import { Container } from './Container';
 import { useStretchy } from '../useStretchy';
 import type { StretchyProps } from '../types';
-import { Container } from './Container';
 
 interface StretchyFlatListProps<T> extends FlatListProps<T>, StretchyProps {}
 export const StretchyFlatList = <T,>({
@@ -13,7 +14,7 @@ export const StretchyFlatList = <T,>({
   foreground,
   ...props
 }: StretchyFlatListProps<T>) => {
-  const { rImage, rView, scrollHandler } = useStretchy({ imageHeight });
+  const { rView, scrollHandler } = useStretchy({ imageHeight });
 
   return (
     <Container>
@@ -28,7 +29,7 @@ export const StretchyFlatList = <T,>({
         onScroll={scrollHandler}
       />
       <Animated.View style={rView} pointerEvents="none">
-        <Animated.Image source={imageSource} style={rImage} />
+        <BgImage source={imageSource} />
         {foreground}
       </Animated.View>
     </Container>

@@ -2,9 +2,10 @@ import React from 'react';
 import Animated from 'react-native-reanimated';
 import type { ScrollViewProps } from 'react-native';
 
-import type { StretchyProps } from '../types';
-import { useStretchy } from '../useStretchy';
+import { BgImage } from './BgImage';
 import { Container } from './Container';
+import { useStretchy } from '../useStretchy';
+import type { StretchyProps } from '../types';
 
 interface StretchyScrollViewProps extends ScrollViewProps, StretchyProps {}
 export const StretchyScrollView = ({
@@ -13,7 +14,7 @@ export const StretchyScrollView = ({
   foreground,
   ...props
 }: StretchyScrollViewProps) => {
-  const { rImage, rView, scrollHandler } = useStretchy({ imageHeight });
+  const { rView, scrollHandler } = useStretchy({ imageHeight });
 
   return (
     <Container>
@@ -28,7 +29,7 @@ export const StretchyScrollView = ({
         onScroll={scrollHandler}
       />
       <Animated.View style={rView} pointerEvents="none">
-        <Animated.Image source={imageSource} style={rImage} />
+        <BgImage source={imageSource} />
         {foreground}
       </Animated.View>
     </Container>
