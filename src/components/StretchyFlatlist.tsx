@@ -20,7 +20,10 @@ export const StretchyFlatList = <T,>({
       <Animated.FlatList
         {...props}
         contentOffset={{ x: 0, y: -imageHeight }}
-        contentContainerStyle={{ paddingTop: imageHeight }}
+        contentContainerStyle={[
+          props.contentContainerStyle,
+          { paddingTop: imageHeight },
+        ]}
         scrollEventThrottle={16}
         onScroll={scrollHandler}
       />

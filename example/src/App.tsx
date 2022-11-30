@@ -8,6 +8,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <StretchyScrollView
         imageHeight={200}
+        contentContainerStyle={styles.content}
         imageSource={require('../assets/image.jpg')}
         foreground={
           <View style={styles.foreground}>
@@ -18,7 +19,7 @@ export default function App() {
         {Array(20)
           .fill(0)
           .map((_, i) => (
-            <View style={styles.box}>
+            <View style={styles.box} key={i}>
               <Text>{i}</Text>
             </View>
           ))}
@@ -48,5 +49,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 24,
     color: 'orange',
+  },
+  content: {
+    backgroundColor: 'gray',
   },
 });
