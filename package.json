@@ -40,13 +40,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/itsramiel/react-native-reanimated-stretchy/react-native-reanimated-stretchy",
+  "repository": "https://github.com/itsramiel/react-native-reanimated-stretchy",
   "author": "ramiel <ramielwan48@gmail.com> (https://github.com/itsramiel/react-native-reanimated-stretchy)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/itsramiel/react-native-reanimated-stretchy/react-native-reanimated-stretchy/issues"
+    "url": "https://github.com/itsramiel/react-native-reanimated-stretchy/issues"
   },
-  "homepage": "https://github.com/itsramiel/react-native-reanimated-stretchy/react-native-reanimated-stretchy#readme",
+  "homepage": "https://github.com/itsramiel/react-native-reanimated-stretchy#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
