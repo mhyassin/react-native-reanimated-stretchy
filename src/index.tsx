@@ -1,1 +1,5 @@
-export {StretchyFlatList, StretchyScrollView, StretchySectionList} from './components'
+export {
+  StretchyFlatList,
+  StretchyScrollView,
+  StretchySectionList,
+} from './components';

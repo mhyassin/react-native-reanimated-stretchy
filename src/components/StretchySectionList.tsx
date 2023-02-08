@@ -33,7 +33,7 @@ export const StretchySectionList = <T, K>({
         scrollEventThrottle={16}
         onScroll={scrollHandler}
       />
-      <Animated.View style={rView} pointerEvents="none">
+      <Animated.View style={rView}>
         <BgImage source={imageSource} />
         {foreground}
       </Animated.View>
