@@ -7,11 +7,14 @@ import { Container } from './Container';
 import { useStretchy } from '../useStretchy';
 import type { StretchyProps } from '../types';
 
-interface StretchyScrollViewProps extends ScrollViewProps, StretchyProps {}
+interface StretchyScrollViewProps extends ScrollViewProps, StretchyProps {
+  sRef?: React.Ref<Animated.ScrollView>;
+}
 export const StretchyScrollView = ({
   imageSource,
   imageHeight,
   foreground,
+  sRef,
   ...props
 }: StretchyScrollViewProps) => {
   const { rView, scrollHandler } = useStretchy({ imageHeight });
@@ -20,6 +23,7 @@ export const StretchyScrollView = ({
     <Container>
       <Animated.ScrollView
         {...props}
+        ref={sRef}
         contentOffset={{ x: 0, y: -imageHeight }}
         contentContainerStyle={[
           props.contentContainerStyle,

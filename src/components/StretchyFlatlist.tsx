@@ -7,11 +7,14 @@ import { Container } from './Container';
 import { useStretchy } from '../useStretchy';
 import type { StretchyProps } from '../types';
 
-interface StretchyFlatListProps<T> extends FlatListProps<T>, StretchyProps {}
+interface StretchyFlatListProps<T> extends FlatListProps<T>, StretchyProps {
+  sRef?: React.Ref<Animated.FlatList<T>>;
+}
 export const StretchyFlatList = <T,>({
   imageSource,
   imageHeight,
   foreground,
+  sRef,
   ...props
 }: StretchyFlatListProps<T>) => {
   const { rView, scrollHandler } = useStretchy({ imageHeight });
@@ -20,6 +23,7 @@ export const StretchyFlatList = <T,>({
     <Container>
       <Animated.FlatList
         {...props}
+        ref={sRef}
         contentOffset={{ x: 0, y: -imageHeight }}
         contentContainerStyle={[
           props.contentContainerStyle,

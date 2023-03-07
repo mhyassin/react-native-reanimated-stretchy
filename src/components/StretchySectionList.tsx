@@ -12,11 +12,14 @@ const AnimatedSectionList =
 
 interface StretchySectionListProps<T, K>
   extends SectionListProps<T, K>,
-    StretchyProps {}
+    StretchyProps {
+  sRef?: React.Ref<SectionList>;
+}
 export const StretchySectionList = <T, K>({
   imageSource,
   imageHeight,
   foreground,
+  sRef,
   ...props
 }: StretchySectionListProps<T, K>) => {
   const { rView, scrollHandler } = useStretchy({ imageHeight });
@@ -25,6 +28,7 @@ export const StretchySectionList = <T, K>({
     <Container>
       <AnimatedSectionList
         {...props}
+        ref={sRef}
         contentOffset={{ x: 0, y: -imageHeight }}
         contentContainerStyle={[
           props.contentContainerStyle,
